@@ -26,15 +26,31 @@ class Home extends StatelessWidget {
                     children: [
                       // 1 Linha
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            children: [
-                              titleText(text: "Altura", context: context),
-                            ],
+                            children: [titleText(text: "Altura", context: context), subtitleText(text: '0,6m', context: context)],
+                          ),
+                          Column(
+                            children: [titleText(text: 'Peso', context: context), subtitleText(text: '8.5kg', context: context)],
                           ),
                         ],
                       ),
                       // 2 Linha
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              titleText(text: "Tipo", context: context),
+                              customChip(text: 'Fogo', background: Color(0xFFF17F2E), context: context),
+                            ],
+                          ),
+                          Column(
+                            children: [titleText(text: "Habilidade", context: context), subtitleText(text: "Chama", context: context)],
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -50,6 +66,30 @@ class Home extends StatelessWidget {
     required String text,
     required BuildContext context,
   }) {
-    return Text(text);
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
+    );
+  }
+
+  Text subtitleText({
+    required String text,
+    required BuildContext context,
+  }) {
+    return Text(text, style: Theme.of(context).textTheme.titleMedium);
+  }
+
+  Chip customChip({
+    required String text,
+    required Color background,
+    required BuildContext context,
+  }) {
+    return Chip(
+      label: Text(text),
+      labelStyle: Theme.of(context).textTheme.labelLarge!.copyWith(
+            color: Colors.white,
+          ),
+      backgroundColor: background,
+    );
   }
 }
