@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
         title: Text("Charmander #004"),
         backgroundColor: const Color(0xFFE3350D),
       ),
-      body: SizedBox(
+      body: Container(
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -36,7 +36,11 @@ class Home extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       // 2 Linha
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
