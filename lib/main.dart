@@ -1,12 +1,55 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home/home.dart';
+class Home extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Image.asset("assets/logo.png"),
+        title: Text("Charmander #004"),
+        backgroundColor: const Color(0xFFE3350D),
+      ),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Image.asset("assets/charmander.png"),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Text('Têm preferência por coisas quentes. Quando chove, diz-se que vapor jorra da ponta da cauda.'),
+              ),
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      // 1 Linha
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              titleText(text: "Altura", context: context),
+                            ],
+                          ),
+                        ],
+                      ),
+                      // 2 Linha
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  } // Build
 
-void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      colorScheme: ColorScheme.light().copyWith(primary: Color(0xFFff0000),)),
-    title: "Projeto",
-    home: Home(),
-    ));
+  Text titleText({
+    required String text,
+    required BuildContext context,
+  }) {
+    return Text(text);
+  }
 }
