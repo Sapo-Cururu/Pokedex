@@ -12,54 +12,74 @@ class Home extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Image.asset("assets/charmander.png"),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text('Têm preferência por coisas quentes. Quando chove, diz-se que vapor jorra da ponta da cauda.'),
-              ),
-              Card(
-                child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      // 1 Linha
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [titleText(text: "Altura", context: context), subtitleText(text: '0,6m', context: context)],
-                          ),
-                          Column(
-                            children: [titleText(text: 'Peso', context: context), subtitleText(text: '8.5kg', context: context)],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      // 2 Linha
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.asset("assets/charmander.png"),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text('Têm preferência por coisas quentes. Quando chove, diz-se que vapor jorra da ponta da cauda.'),
+                ),
+                Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        // 1 Linha
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [titleText(text: "Altura", context: context), subtitleText(text: '0,6m', context: context)],
+                            ),
+                            Column(
+                              children: [titleText(text: 'Peso', context: context), subtitleText(text: '8.5kg', context: context)],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        // 2 Linha
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              titleText(text: "Tipo", context: context),
-                              customChip(text: 'Fogo', background: Color(0xFFF17F2E), context: context),
-                            ],
-                          ),
-                          Column(
-                            children: [titleText(text: "Habilidade", context: context), subtitleText(text: "Chama", context: context)],
-                          ),
-                        ],
-                      ),
-                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                titleText(text: "Tipo", context: context),
+                                customChip(text: 'Fogo', background: Color(0xFFF17F2E), context: context),
+                              ],
+                            ),
+                            Column(
+                              children: [titleText(text: "Habilidade", context: context), subtitleText(text: "Chama", context: context)],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 7),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Fraquezas",
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    customChip(text: "Água", background: const Color(0xFF688FF3), context: context),
+                    customChip(text: "Terra", background: Color.fromARGB(255, 245, 241, 39), context: context),
+                    customChip(text: "Rocha", background: const Color(0xFFA48C22), context: context),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
